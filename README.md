@@ -1,1 +1,1 @@
-# Candy Crush Bot
+# Bejeweled Bot
