@@ -4,7 +4,7 @@ import numpy as np
 import time
 from PIL import Image
 
-# Helper for average gen color
+# Helpers for gem recognition
 
 def get_average_color(image, x, y, cell_width, cell_height):
     area = image.crop((x, y, x + cell_width, y + cell_height))
