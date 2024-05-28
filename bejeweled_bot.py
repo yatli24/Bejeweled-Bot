@@ -215,59 +215,60 @@ def check_down_solutions(mat):
 
 # Moves the cursor to solve gems
 
-def solve_puzzle(matrix, cell_width):
+def solve_puzzle(matrix, cell_width, board_left_x, board_left_y):
     bool_left, i, j, current, four = check_left_solutions(matrix)
     bool_right, i1, j1, current1, four1 = check_right_solutions(matrix)
     bool_up, i2, j2, current2, four2 = check_up_solutions(matrix)
     bool_down, i3, j3, current3, four3 = check_down_solutions(matrix)
-
+    cursor_x = board_left_x + (cell_width // 2)
+    cursor_y = board_left_y + (cell_width // 2)
     if four == 1:
         print(f'swap {current} left {i},{j}')
-        pyautogui.moveTo(390 + (j * cell_width), 270 + (i * cell_width))
+        pyautogui.moveTo(cursor_x + (j * cell_width), cursor_y + (i * cell_width))
         pyautogui.mouseDown(button='left')
-        pyautogui.moveTo((390 + (j * cell_width)) - cell_width, (270 + (i * cell_width)), 0.5)
+        pyautogui.moveTo((cursor_x + (j * cell_width)) - cell_width, (cursor_y + (i * cell_width)), 0.5)
     elif four1 == 1:
         print(f'swap {current1} left {i1},{j1}')
-        pyautogui.moveTo(390 + (j1 * cell_width), 270 + (i1 * cell_width))
+        pyautogui.moveTo(cursor_x + (j1 * cell_width), cursor_y + (i1 * cell_width))
         pyautogui.mouseDown(button='left')
-        pyautogui.moveTo((390 + (j1 * cell_width)) + cell_width, (270 + (i1 * cell_width)), 0.5)
+        pyautogui.moveTo((cursor_x + (j1 * cell_width)) + cell_width, (cursor_y + (i1 * cell_width)), 0.5)
     elif four2 == 1:
         print(f'swap {current2} left {i2},{j2}')
-        pyautogui.moveTo(390 + (j2 * cell_width), 270 + (i2 * cell_width))
+        pyautogui.moveTo(cursor_x + (j2 * cell_width), cursor_y + (i2 * cell_width))
         pyautogui.mouseDown(button='left')
-        pyautogui.moveTo((390 + (j2 * cell_width)), (270 + (i2 * cell_width)) - cell_width, 0.5)
+        pyautogui.moveTo((cursor_x + (j2 * cell_width)), (cursor_y + (i2 * cell_width)) - cell_width, 0.5)
     elif four3 == 1:
         print(f'swap {current3} left {i3},{j3}')
-        pyautogui.moveTo(390 + (j3 * cell_width), 270 + (i3 * cell_width))
+        pyautogui.moveTo(cursor_x + (j3 * cell_width), cursor_y + (i3 * cell_width))
         pyautogui.mouseDown(button='left')
-        pyautogui.moveTo((390 + (j3 * cell_width)), (270 + (i3 * cell_width)) + cell_width, 0.5)
+        pyautogui.moveTo((cursor_x + (j3 * cell_width)), (cursor_y + (i3 * cell_width)) + cell_width, 0.5)
     elif bool_left == True:
         print(f'swap {current} left {i},{j}')
-        pyautogui.moveTo(390 + (j * cell_width), 270 + (i * cell_width))
+        pyautogui.moveTo(cursor_x + (j * cell_width), cursor_y + (i * cell_width))
         pyautogui.mouseDown(button='left')
-        pyautogui.moveTo((390 + (j * cell_width)) - cell_width, (270 + (i * cell_width)), 0.5)
+        pyautogui.moveTo((cursor_x + (j * cell_width)) - cell_width, (cursor_y + (i * cell_width)), 0.5)
     elif bool_right == True:
         print(f'swap {current1} right {i1},{j1}')
-        pyautogui.moveTo(390 + (j1 * cell_width), 270 + (i1 * cell_width))
+        pyautogui.moveTo(cursor_x + (j1 * cell_width), cursor_y + (i1 * cell_width))
         pyautogui.mouseDown(button='left')
-        pyautogui.moveTo((390 + (j1 * cell_width)) + cell_width, (270 + (i1 * cell_width)), 0.5)
+        pyautogui.moveTo((cursor_x + (j1 * cell_width)) + cell_width, (cursor_y + (i1 * cell_width)), 0.5)
     elif bool_up == True:
         print(f'swap {current2} up {i2},{j2}')
-        pyautogui.moveTo(390 + (j2 * cell_width), 270 + (i2 * cell_width))
+        pyautogui.moveTo(cursor_x + (j2 * cell_width), cursor_y + (i2 * cell_width))
         pyautogui.mouseDown(button='left')
-        pyautogui.moveTo((390 + (j2 * cell_width)), (270 + (i2 * cell_width)) - cell_width, 0.5)
+        pyautogui.moveTo((cursor_x + (j2 * cell_width)), (cursor_y + (i2 * cell_width)) - cell_width, 0.5)
     elif bool_down == True:
         print(f'swap {current3} down {i3},{j3}')
-        pyautogui.moveTo(390 + (j3 * cell_width), 270 + (i3 * cell_width))
+        pyautogui.moveTo(cursor_x + (j3 * cell_width), cursor_y + (i3 * cell_width))
         pyautogui.mouseDown(button='left')
-        pyautogui.moveTo((390 + (j3 * cell_width)), (270 + (i3 * cell_width)) + cell_width, 0.5)
+        pyautogui.moveTo((cursor_x + (j3 * cell_width)), (cursor_y + (i3 * cell_width)) + cell_width, 0.5)
 
 # Function to call helpers and play Bejeweled
 def play():
     try:
         while True:
             time.sleep(3)
-            
+            # Set game region
             board_top_left_x = 367
             board_top_left_y = 245
             board_width = 340
@@ -287,7 +288,7 @@ def play():
                 formatted_row = ', '.join(row)
                 print(f'[{formatted_row}]')
 
-            solve_puzzle(color_matrix, cell_width)
+            solve_puzzle(color_matrix, cell_width, board_top_left_x, board_top_left_y)
 
     except KeyboardInterrupt:
         print('Program Terminated.')
