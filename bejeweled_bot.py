@@ -19,7 +19,7 @@ def get_average_color(image, x, y, cell_width, cell_height):
 
 def classify_color(rgb):
     # Define the RGB codes for different gems
-    # Gems may be firey or normal
+    # Gems may be special or normal
     color_thresholds = {
         'r': [(143, 27, 43), (191, 78, 84)],
         'b': [(35, 86, 133)],
