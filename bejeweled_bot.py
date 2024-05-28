@@ -267,23 +267,23 @@ def play():
     try:
         while True:
             time.sleep(3)
+            
             board_top_left_x = 367
             board_top_left_y = 245
             board_width = 340
             board_height = 350
             board_region = (board_top_left_x, board_top_left_y, board_width, board_height)
 
-            rows, cols = 8, 8
-
             image = pyautogui.screenshot(region=board_region)
 
+            rows, cols = 8, 8
             cell_width = image.width // cols
             cell_height = image.height // rows
 
-            color_matrix = create_color_matrix(image, rows, cols, cell_width, cell_height)
+            gem_matrix = create_gem_matrix(image, rows, cols, cell_width, cell_height)
 
             # print gem matrix
-            for row in color_matrix:
+            for row in gem_matrix:
                 formatted_row = ', '.join(row)
                 print(f'[{formatted_row}]')
 
