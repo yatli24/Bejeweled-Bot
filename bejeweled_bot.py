@@ -213,7 +213,7 @@ def solve_puzzle(matrix):
         pyautogui.mouseDown(button='left')
         pyautogui.moveTo((390 + (j3 * 40)), (270 + (i3 * 40)) + 40, 0.5)
 
-# Calls helpers and plays Bejeweled
+# Function to call helpers and play Bejeweled
 def play():
     try: 
         while True:
