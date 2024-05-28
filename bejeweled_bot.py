@@ -239,5 +239,3 @@ def play():
         return
 
 play()
-play()
-
