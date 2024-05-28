@@ -238,4 +238,5 @@ def play():
         print('Program Terminated.')
         return
 
-play()
+if __name__== "__main__":
+    play()
