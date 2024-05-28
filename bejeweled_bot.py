@@ -201,8 +201,9 @@ def play():
             cell_height = image.height // rows
     
             gem_matrix = create_gem_matrix(image, rows, cols, cell_width, cell_height)
-    
-            for row in color_matrix:
+
+            # Print gem matrix
+            for row in gem_matrix:
                 formatted_row = ', '.join(row)
                 print(f'[{formatted_row}]')
     
