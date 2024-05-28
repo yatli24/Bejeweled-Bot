@@ -86,7 +86,6 @@ def check_left_solutions(mat):
             current_left_down = mat[i + 1][j - 1] if (j > 0) and (i < 7) else None
             current_left_up2 = mat[i - 2][j - 1] if (j > 0) and (i > 1) else None
             current_left_down2 = mat[i + 2][j - 1] if (j > 0) and (i < 6) else None
-
             if (current_left_2 == current) and (current_left_3 == current):
                 return True, i, j, current
             elif (current_left_up == current) and (current_left_down == current):
@@ -117,7 +116,6 @@ def check_right_solutions(mat):
             current_right_down = mat[i + 1][j + 1] if (j < 7) and (i < 7) else None
             current_right_up2 = mat[i - 2][j + 1] if (j < 7) and (i > 1) else None
             current_right_down2 = mat[i + 2][j + 1] if (j < 7) and (i < 6) else None
-
             if (current_right_2 == current) and (current_right_3 == current):
                 return True, i, j, current
             elif (current_right_up == current) and (current_right_down == current):
@@ -148,7 +146,6 @@ def check_up_solutions(mat):
             current_right_up = mat[i - 1][j + 1] if (j < 7) and (i > 0) else None
             current_left2_up = mat[i - 1][j - 2] if (j > 1) and (i > 0) else None
             current_right2_up = mat[i - 1][j + 2] if (j < 6) and (i > 0) else None
-
             if (current_up_2 == current) and (current_up_3 == current):
                 return True, i, j, current
             elif (current_right_up == current) and (current_right2_up == current):
@@ -179,7 +176,6 @@ def check_down_solutions(mat):
             current_right_down = mat[i + 1][j + 1] if (j < 7) and (i < 7) else None
             current_left2_down = mat[i + 1][j - 2] if (j > 1) and (i < 7) else None
             current_right2_down = mat[i + 1][j + 2] if (j < 6) and (i < 7) else None
-
             if (current_down_2 == current) and (current_down_3 == current):
                 return True, i, j, current
             elif (current_right_down == current) and (current_right2_down == current):
@@ -214,12 +210,12 @@ def solve_puzzle(matrix):
         print(f'swap {current2} up {i2},{j2}')
         pyautogui.moveTo(390 + (j2 * 40), 270 + (i2 * 40))
         pyautogui.mouseDown(button='left')
-        pyautogui.moveTo((390 + (j2 * 40)), (270 + (i2 * 40)) + 40, 0.5)
+        pyautogui.moveTo((390 + (j2 * 40)), (270 + (i2 * 40)) - 40, 0.5)
     elif bool_down == True:
         print(f'swap {current3} down {i3},{j3}')
         pyautogui.moveTo(390 + (j3 * 40), 270 + (i3 * 40))
         pyautogui.mouseDown(button='left')
-        pyautogui.moveTo((390 + (j3 * 40)), (270 + (i3 * 40)) - 40, 0.5)
+        pyautogui.moveTo((390 + (j3 * 40)), (270 + (i3 * 40)) + 40, 0.5)
 
 # Calls helpers and plays Bejeweled
 def play():
