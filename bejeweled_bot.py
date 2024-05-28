@@ -20,18 +20,24 @@ def get_average_color(image, x, y, cell_width, cell_height):
 def classify_color(rgb):
     # Define the RGB codes for different gems
     color_thresholds = {
-        'r': (143, 27, 43),
-        'b': (35, 86, 133),
-        'y': (118, 113, 52),
-        'p': (101, 55, 112),
-        'o': (139, 87, 48),
-        'g': (35, 127, 59),
-        'w': (125, 129, 132)
+        'r': [(143, 27, 43), (191, 78, 84)],
+        'b': [(35, 86, 133)],
+        'y': [(118, 113, 52), 147, 116, 64],
+        'p': [(101, 55, 112)],
+        'o': [(139, 87, 48)],
+        'g': [(35, 127, 59)],
+        'w': [(125, 129, 132), (255,255,255)]
     }
-
+    closest_color = None
+    min_distance = float('inf')
     # Find the closest color match
-    closest_color = min(color_thresholds,
-                        key=lambda color: np.linalg.norm(np.array(rgb) - np.array(color_thresholds[color])))
+    for color, rgb_values in color_thresholds.items():
+        for threshold in rgb_values:
+            distance = np.linalg.norm(np.array(rgb) - np.array(threshold))
+            if distance < min_distance:
+                min_distance = distance
+                closest_color = color
+
     return closest_color
 
 # Create a gem matrix
