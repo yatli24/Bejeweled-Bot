@@ -37,7 +37,7 @@ def classify_color(rgb):
     return closest_color
 
 # Create a gem matrix
-def create_color_matrix(image, rows, cols, cell_width, cell_height):
+def create_gem_matrix(image, rows, cols, cell_width, cell_height):
     matrix = []
     for i in range(rows):
         row = []
@@ -49,21 +49,6 @@ def create_color_matrix(image, rows, cols, cell_width, cell_height):
             row.append(color_name)
         matrix.append(row)
     return matrix
-
-
-# Parameters
-
-# Game Board region for splitscreen
-board_region = (367, 245, 340, 350)
-
-rows, cols = 8, 8
-
-image = pyautogui.screenshot(region=board_region)
-
-cell_width = image.width // cols
-cell_height = image.height // rows
-
-color_matrix = create_color_matrix(image, rows, cols, cell_width, cell_height)
 
 # Checks left side solutions
 
@@ -220,20 +205,20 @@ def play():
             time.sleep(3)
             board_region = (367, 245, 340, 350)
     
-            rows, cols = 8, 8  # Adjust based on the game grid
+            rows, cols = 8, 8
     
             image = pyautogui.screenshot(region=board_region)
     
             cell_width = image.width // cols
             cell_height = image.height // rows
     
-            color_matrix = create_color_matrix(image, rows, cols, cell_width, cell_height)
+            gem_matrix = create_gem_matrix(image, rows, cols, cell_width, cell_height)
     
             for row in color_matrix:
                 formatted_row = ', '.join(row)  # Join elements with a comma and space
                 print(f'[{formatted_row}]')
     
-            solve_puzzle(color_matrix)
+            solve_puzzle(gem_matrix)
     except KeyboardInterrupt:
         print('Program Terminated.')
         return
