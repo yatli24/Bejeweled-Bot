@@ -56,7 +56,7 @@ def create_color_matrix(image, rows, cols, cell_width, cell_height):
 # Game Board region for splitscreen
 board_region = (367, 245, 340, 350)
 
-rows, cols = 8, 8  # Adjust based on the game grid
+rows, cols = 8, 8
 
 image = pyautogui.screenshot(region=board_region)
 
