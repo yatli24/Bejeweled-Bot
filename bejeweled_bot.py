@@ -215,7 +215,7 @@ def play():
             gem_matrix = create_gem_matrix(image, rows, cols, cell_width, cell_height)
     
             for row in color_matrix:
-                formatted_row = ', '.join(row)  # Join elements with a comma and space
+                formatted_row = ', '.join(row)
                 print(f'[{formatted_row}]')
     
             solve_puzzle(gem_matrix)
