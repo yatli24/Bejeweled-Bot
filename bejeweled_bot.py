@@ -55,9 +55,6 @@ def create_gem_matrix(image, rows, cols, cell_width, cell_height):
 def check_left_solutions(mat):
     rows = len(mat)
     cols = len(mat[0]) if rows > 0 else 0
-    n = 0
-    x = 0
-    r = 0
     for i in range(rows):
         for j in range(cols):
             current = mat[i][j]
@@ -77,7 +74,7 @@ def check_left_solutions(mat):
                 return True, i, j, current
             else:
                 continue
-    return False, n, x, r
+    return False, 0, 0, 0
 
 
 # Checks right side solutions
@@ -85,9 +82,6 @@ def check_left_solutions(mat):
 def check_right_solutions(mat):
     rows = len(mat)
     cols = len(mat[0]) if rows > 0 else 0
-    n = 0
-    x = 0
-    r = 0
     for i in range(rows):
         for j in range(cols):
             current = mat[i][j]
@@ -107,7 +101,7 @@ def check_right_solutions(mat):
                 return True, i, j, current
             else:
                 continue
-    return False, n, x, r
+    return False, 1, 0, 0
 
 
 # Checks top side solutions
@@ -115,9 +109,6 @@ def check_right_solutions(mat):
 def check_up_solutions(mat):
     rows = len(mat)
     cols = len(mat[0]) if rows > 0 else 0
-    n = 0
-    x = 0
-    r = 0
     for i in range(rows):
         for j in range(cols):
             current = mat[i][j]
@@ -137,7 +128,7 @@ def check_up_solutions(mat):
                 return True, i, j, current
             else:
                 continue
-    return False, n, x, r
+    return False, 0, 1, 0
 
 
 # Checks bottom side solutions
@@ -145,9 +136,6 @@ def check_up_solutions(mat):
 def check_down_solutions(mat):
     rows = len(mat)
     cols = len(mat[0]) if rows > 0 else 0
-    n = 0
-    x = 0
-    r = 0
     for i in range(rows):
         for j in range(cols):
             current = mat[i][j]
@@ -167,7 +155,7 @@ def check_down_solutions(mat):
                 return True, i, j, current
             else:
                 continue
-    return False, n, x, r
+    return False, 0, 0, 1
 
 
 # Moves the cursor to solve gems
