@@ -220,27 +220,29 @@ def solve_puzzle(matrix):
 
 # Calls helpers and plays Bejeweled
 def play():
-    for i in range(0, 1000, 1):
-        time.sleep(3)
+    try: 
+        while True:
+            time.sleep(3)
+            board_region = (367, 245, 340, 350)
+    
+            rows, cols = 8, 8  # Adjust based on the game grid
+    
+            image = pyautogui.screenshot(region=board_region)
+    
+            cell_width = image.width // cols
+            cell_height = image.height // rows
+    
+            color_matrix = create_color_matrix(image, rows, cols, cell_width, cell_height)
+    
+            for row in color_matrix:
+                formatted_row = ', '.join(row)  # Join elements with a comma and space
+                print(f'[{formatted_row}]')
+    
+            solve_puzzle(color_matrix)
+    except KeyboardInterrupt:
+        print('Program Terminated.')
+        return
 
-        # Adjust based on the game region
-        board_region = (367, 245, 340, 350)
-
-        rows, cols = 8, 8  
-
-        image = pyautogui.screenshot(region=board_region)
-
-        cell_width = image.width // cols
-        cell_height = image.height // rows
-
-        color_matrix = create_color_matrix(image, rows, cols, cell_width, cell_height)
-
-        # Prints gem matrix into console
-        for row in color_matrix:
-            formatted_row = ', '.join(row)
-            print(f'[{formatted_row}]')
-
-        solve_puzzle(color_matrix)
-
+play()
 play()
 
