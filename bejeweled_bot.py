@@ -4,18 +4,13 @@ import numpy as np
 import time
 from PIL import Image
 
+# Helper for average gen color
+
 def get_average_color(image, x, y, cell_width, cell_height):
-    # Crop the specific area of the image
     area = image.crop((x, y, x + cell_width, y + cell_height))
-
-    # Convert the cropped area to a numpy array
     pixels = np.array(area)
-
-    # Calculate the average color
     average_color = pixels.mean(axis=(0, 1))
-
     return tuple(average_color.astype(int))
-
 
 def classify_color(rgb):
     # Define the RGB codes for different gems
