@@ -9,7 +9,6 @@ from sklearn.neighbors import KNeighborsClassifier
 # TRAINING #
 
 # Helper for image loading from folder
-
 def load_images(folder):
     images = []
     for filename in os.listdir(folder):
@@ -25,7 +24,7 @@ def get_average_color(image):
     return average_color
 
 
-# Helper for gem splitting from board
+# Helper for splitting gems from board
 def split_screenshot(screenshot, grid_size):
     height, width, _ = screenshot.shape
     gem_height = height // grid_size[0]
@@ -64,13 +63,13 @@ def create_gem_color_matrix(gems, model, labels):
 
 
 # Define gem image folders
-yellow_gem_folder = 'C:\\Users\\ivani\\PycharmProjects\\BejeweledBot\\board_4_gems\\yellow_4'
-red_gem_folder = 'C:\\Users\\ivani\\PycharmProjects\\BejeweledBot\\board_4_gems\\red_4'
-blue_gem_folder = 'C:\\Users\\ivani\\PycharmProjects\\BejeweledBot\\board_4_gems\\blue_4'
-orange_gem_folder = 'C:\\Users\\ivani\\PycharmProjects\\BejeweledBot\\board_4_gems\\orange_4'
-purple_gem_folder = 'C:\\Users\\ivani\\PycharmProjects\\BejeweledBot\\board_4_gems\\purple_4'
-white_gem_folder = 'C:\\Users\\ivani\\PycharmProjects\\BejeweledBot\\board_4_gems\\white_4'
-green_gem_folder = 'C:\\Users\\ivani\\PycharmProjects\\BejeweledBot\\board_4_gems\\green_4'
+yellow_gem_folder = 'C:\\Users\\user\\dir\\BejeweledBot\\gems_folder\\yellow'
+red_gem_folder = 'C:\\Users\\user\\dir\\BejeweledBot\\gems_folder\\red'
+blue_gem_folder = 'C:\\Users\\user\\dir\\BejeweledBot\\gems_folder\\blue'
+orange_gem_folder = 'C:\\Users\\user\\dir\\BejeweledBot\\gems_folder\\orange'
+purple_gem_folder = 'C:\\Users\\user\\dir\\BejeweledBot\\gems_folder\\purple'
+white_gem_folder = 'C:\\Users\\user\\dir\\BejeweledBot\\gems_folder\\white'
+green_gem_folder = 'C:\\Users\\user\\dir\\BejeweledBot\\gems_folder\\green'
 
 # Load images separately
 yellow_images = load_images(yellow_gem_folder)
@@ -295,7 +294,7 @@ def check_down_solutions(mat):
     return False, 0, 0, 1, 0
 
 
-# Solution algorithm
+# Moves the mouse cursor to solve gems using the greedy algorithm
 def solve_puzzle(matrix, cell_width, board_left_x, board_left_y):
     bool_left, i, j, current, four = check_left_solutions(matrix)
     bool_right, i1, j1, current1, four1 = check_right_solutions(matrix)
