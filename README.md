@@ -9,4 +9,4 @@ Algorithm Priority:
 5. Matches of 3
 
 # Notes
-The code for the image recognition region is hardcoded. Adjust according to your game version/setup.
+The code for the game board recognition region is hardcoded. Adjust according to your game version/setup.
