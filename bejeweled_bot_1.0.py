@@ -294,7 +294,7 @@ def check_down_solutions(mat):
     return False, 0, 0, 1, 0
 
 
-# Moves the mouse cursor to solve gems using the greedy algorithm
+# Moves the mouse cursor to solve gems using a greedy algorithm
 def solve_puzzle(matrix, cell_width, board_left_x, board_left_y):
     bool_left, i, j, current, four = check_left_solutions(matrix)
     bool_right, i1, j1, current1, four1 = check_right_solutions(matrix)
