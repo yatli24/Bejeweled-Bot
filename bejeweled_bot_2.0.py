@@ -4,16 +4,17 @@ import numpy as np
 import time
 from PIL import Image
 
-# Helpers for gem recognition
 
+# Average color helper
 def get_average_color(image, x, y, cell_width, cell_height):
     area = image.crop((x, y, x + cell_width, y + cell_height))
     pixels = np.array(area)
     average_color = pixels.mean(axis=(0, 1))
     return tuple(average_color.astype(int))
 
+# Classify a cell by color
 def classify_color(rgb):
-    # Define the RGB codes for different gems
+    # Manually define the RGB codes for different gems
     # Gems may be flaming, shining, special, or normal
     color_thresholds = {
         'r': [(143, 27, 43), (191, 78, 84), (123,12,35), (191, 125, 158)],
@@ -36,7 +37,7 @@ def classify_color(rgb):
 
     return closest_color
 
-# Create a gem matrix
+# Create a gem matrix for the greedy algorithm to solve
 def create_gem_matrix(image, rows, cols, cell_width, cell_height):
     matrix = []
     for i in range(rows):
@@ -267,8 +268,9 @@ def solve_puzzle(matrix, cell_width, board_left_x, board_left_y):
 def play():
     try:
         while True:
-            time.sleep(3)
-            # Set game region
+            # Give the board time to reset
+            time.sleep(1.5)
+            # Set game region locally (Hard Coded)
             board_top_left_x = 367
             board_top_left_y = 245
             board_width = 340
@@ -283,7 +285,7 @@ def play():
 
             gem_matrix = create_gem_matrix(image, rows, cols, cell_width, cell_height)
 
-            # print gem matrix
+            # Print gem matrix
             for row in gem_matrix:
                 formatted_row = ', '.join(row)
                 print(f'[{formatted_row}]')
@@ -294,5 +296,6 @@ def play():
         print('Program Terminated.')
         return
 
+# Run the bot
 if __name__== "__main__":
     play()
