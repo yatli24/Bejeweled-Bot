@@ -63,13 +63,13 @@ def create_gem_color_matrix(gems, model, labels):
 
 
 # Define gem image folders
-yellow_gem_folder = 'C:\\Users\\user\\dir\\BejeweledBot\\gems_folder\\yellow'
-red_gem_folder = 'C:\\Users\\user\\dir\\BejeweledBot\\gems_folder\\red'
-blue_gem_folder = 'C:\\Users\\user\\dir\\BejeweledBot\\gems_folder\\blue'
-orange_gem_folder = 'C:\\Users\\user\\dir\\BejeweledBot\\gems_folder\\orange'
-purple_gem_folder = 'C:\\Users\\user\\dir\\BejeweledBot\\gems_folder\\purple'
-white_gem_folder = 'C:\\Users\\user\\dir\\BejeweledBot\\gems_folder\\white'
-green_gem_folder = 'C:\\Users\\user\\dir\\BejeweledBot\\gems_folder\\green'
+yellow_gem_folder = 'C:\\Users\\user\\dir\\BejeweledBot\\gem_images\\yellow'
+red_gem_folder = 'C:\\Users\\user\\dir\\BejeweledBot\\gem_images\\red'
+blue_gem_folder = 'C:\\Users\\user\\dir\\BejeweledBot\\gem_images\\blue'
+orange_gem_folder = 'C:\\Users\\user\\dir\\BejeweledBot\\gem_images\\orange'
+purple_gem_folder = 'C:\\Users\\user\\dir\\BejeweledBot\\gem_images\\purple'
+white_gem_folder = 'C:\\Users\\user\\dir\\BejeweledBot\\gem_images\\white'
+green_gem_folder = 'C:\\Users\\user\\dir\\BejeweledBot\\gem_images\\green'
 
 # Load images separately
 yellow_images = load_images(yellow_gem_folder)
