@@ -379,7 +379,7 @@ def play():
             solve_puzzle(gem_matrix, cell_width, board_top_left_x, board_top_left_y)
 
     except KeyboardInterrupt:
-        print('Program Terminated.')
+        print('Bejeweled Bot 1.0 Terminated.')
         return
 
 # Run the bot
