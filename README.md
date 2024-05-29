@@ -10,3 +10,4 @@ Algorithm Priority:
 
 # Notes
 The code for the game board recognition region is hardcoded. Adjust according to your game version/setup.
+The bot performs the best when color ranges are specifically defined. A machine learning algorithm using scikit-learn was employed in an earlier version with training and test sets using various game boards, but was found to be ineffective in recognizing gems.
