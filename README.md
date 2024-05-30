@@ -6,7 +6,6 @@ Algorithm Priority:
 2. Matches of 4
 3. Vertical Matches (Theoretically better than horizontal matches)
 4. Horizontal Matches
-5. Matches of 3
 
 # Notes
 The code for the game board recognition region is hardcoded. Adjust according to your game version/setup.
