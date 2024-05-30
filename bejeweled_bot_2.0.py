@@ -295,6 +295,7 @@ def play():
     except KeyboardInterrupt:
         print('Thank you for using Bejeweled Bot 2.0!')
         return
+    print('Thank you for using Bejeweled Bot 2.0!')
 
 # Run the bot
 if __name__== "__main__":
