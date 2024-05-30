@@ -381,6 +381,7 @@ def play():
     except KeyboardInterrupt:
         print('Thank you for using Bejeweled Bot 1.0!')
         return
+    print('Thank you for using Bejeweled Bot 1.0!')
 
 # Run the bot
 play()
