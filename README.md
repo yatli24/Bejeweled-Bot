@@ -1,5 +1,5 @@
 # Bejeweled Bot
-A bot that uses image recognition and a greedy algorithm to play the puzzle game Bejeweled.
+A bot that uses image recognition, computer vision, machine learning, and a greedy algorithm to play the puzzle game Bejeweled.
 
 Algorithm Priority:
 1. Matches of 5 (L Shape)
