@@ -12,4 +12,4 @@ The code for the game board recognition region is hardcoded. Adjust according to
 
 The bot performs the best when color ranges are specifically defined.
 
-A machine learning algorithm using scikit-learn was employed in version 1.0 with training and test sets using various gem images, but was found to be ineffective in recognizing certain gems.
+A machine learning algorithm using scikit-learn was employed in version 1.0 with training and test sets using various gem images to automatically identify the color ranges.
